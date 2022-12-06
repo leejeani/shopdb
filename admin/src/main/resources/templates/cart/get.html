@@ -1,0 +1,82 @@
+<!-- admintest adm get -->
+
+<meta charset="utf-8">
+<style>
+	tbody > tr > td > img {
+		width: 50px;
+	}
+
+</style>
+<script>
+
+function del(id){
+	var c = confirm('삭제 하시겠습니까 ?');
+	if(c == true){
+		location.href='[[@{/cart/delete?id=}]]'+id;
+	}
+};
+
+</script>
+
+
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Get Cart</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Cart List</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cust ID</th>
+                        <th>Cust Name</th>
+                        <th>Item ID</th>
+                        <th>Item ID</th>
+                        <th>Item Price</th>
+                        <th>Count</th>
+                        <th>Date</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                   	<tr th:each="obj:${list}">
+                   		<td th:text="${obj.id}"></td>
+                   		<td th:text="${obj.cust_id}"></td>
+                   		<td><img th:src="@{/img/}+${obj.item_imgname}"> </td>
+                   		<td th:text="${obj.item_id}"></td>
+                   		<td th:text="${obj.item_name}"></td>
+                   		<td th:text="${obj.item_price}"></td>
+                   		<td th:text="${obj.cnt}"></td>
+                   		<td th:text="${#dates.format(obj.rdate, 'yyyy-MM-dd')}"></td>
+                   		<td>
+                   			<button th:onclick="del([[${obj.id}]]);"   id="delete_btn" class="btn btn-default">DELETE</button>
+                   		</td>
+                   	</tr>      
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Page level plugins -->
+<script th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script th:src="@{/js/demo/datatables-demo.js}"></script>
+
+
+
+
+
+
+
+
