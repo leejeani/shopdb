@@ -204,7 +204,7 @@
 			</a></li>
 
 			<!-- OCR Test -->
-			<li class="nav-item"><a class="nav-link" th:href="@{/websocket}">
+			<li class="nav-item"><a  th:if="${session.loginadmin != null} and ${session.loginadmin.lev == 1}" class="nav-link" th:href="@{/websocket}">
 					<i class="fas fa-fw fa-table"></i> <span>Web Socket</span>
 			</a></li>
 			
