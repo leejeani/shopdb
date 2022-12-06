@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+<script>
+$(document).ready(function(){
+	$('#register_btn').click(function(){
+		$('#register_form').attr({
+			method:'post',
+			action:'/adm/registerimpl'
+		});
+		$('#register_form').submit();
+	});
+});
+</script>
+
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Register Admin</h1>
+</div>
+
+
+<!-- Detail Area -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Register Admin</h6>
+    </div>
+    <div class="card-body">
+       <form id="register_form">
+		    <div class="form-group">
+		      <label for="id">ID:</label>
+		      <input type="text" class="form-control" id="id"  name="id">
+		      <span id="ispan"></span>
+		    </div>
+		    <div class="form-group">
+		      <label for="pwd">Password:</label>
+		      <input type="text" class="form-control" id="pwd" name="pwd">
+		    </div>
+		    <div class="form-group">
+		      <label for="lev">LEVEL:</label>
+		      <input type="number" class="form-control" id="lev" name="lev">
+		    </div> 
+  		</form>
+  		<button id="register_btn" class="btn btn-default">REGISTER</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+

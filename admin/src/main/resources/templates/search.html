@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+<style>
+	tbody > tr > td > img{
+		width:50px; 
+	}
+
+</style>
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Search Item</h1>
+</div>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Item List</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                   	<tr th:each="obj:${list}">
+                   		<td><img th:src="@{/img/}+${obj.imgname}"> </td>
+                   		<td><a th:href="@{/item/detail(id=${obj.id})}"  th:text="${obj.id}"></a></td>
+                   		<td th:text="${obj.name}"></td>
+                   		<td th:text="${obj.price}"></td>
+                   		<td th:text="${#dates.format(obj.rdate, 'yyyy-MM-dd')}"></td>
+                   	</tr>      
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!-- Page level plugins -->
+<script th:src="@{/vendor/datatables/jquery.dataTables.min.js}"></script>
+<script th:src="@{/vendor/datatables/dataTables.bootstrap4.min.js}"></script>
+
+<!-- Page level custom scripts -->
+<script th:src="@{/js/demo/datatables-demo.js}"></script>
