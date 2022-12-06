@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<style>
+	table > tbody > tr > td > img {
+		width:100px;
+	} 
+	table > tbody > tr > td > img:hover {
+		width:99px;
+		border:1px solid red;
+	} 
+</style>
+
+
+<div class="container">
+  <h2>Item List</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+      	<th>Image111</th>
+        <th>No</th>
+        <th>Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="it : ${itemlist}">
+        <td>
+            <a th:href="@{/itemdetail(id=${it.id})}">
+               <img th:src="'/img/'+${it.imgname}"> 
+            </a>
+        </td>
+        <td th:text="${it.id}">no</td>
+        <td th:text="${it.name}">name</td>
+        <td th:text="${it.price}">price</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+

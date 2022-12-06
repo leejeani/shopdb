@@ -1,0 +1,63 @@
+<meta charset="utf-8">
+<style>
+	table > tbody > tr > td > img {
+		width:100px;
+	} 
+	table > tbody > tr > td > img:hover {
+		width:99px;
+		border:1px solid red;
+	} 
+</style>
+
+<script>
+function del(id){
+	var cust_id = '[[${session.logincust.id}]]';
+	var c = confirm('삭제 하시겠습니까 ?');
+	if(c == true){
+		location.href='[[@{/deletecart?id=}]]'+id+'[[@{&cust_id=}]]'+cust_id;
+	}
+}
+
+</script>
+
+
+<div class="container">
+  <h2>Carts List</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+      	<th>No</th>
+        <th>Image</th>
+        <th>Item Id</th>
+        <th>Item Name</th>
+        <th>Price</th>
+        <th>Count</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="c : ${mycarts}">
+        <td id="cid" th:text="${c.id}">NO</td>
+        <td> <img th:src="'/img/'+${c.item_imgname}"> </td>
+        <td th:text="${c.item_id}">Item Id</td>
+        <td th:text="${c.item_name}">Item Name</td>
+        <td th:text="${c.item_price}">Price</td>
+        <td th:text="${c.cnt}">Count</td>
+        <td th:text="${#dates.format(c.rdate, 'yyyy-MM-dd')}">Date</td>
+        <td> 
+        	<button th:onclick="del([[${c.id}]]);" type="button" class="btn btn-default btn-sm">
+          		<span class="glyphicon glyphicon-trash"></span> Delete 
+        	</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+

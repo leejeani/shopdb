@@ -1,22 +1,22 @@
 package com.shop.dto;
 
-import java.util.Date;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 @ToString
-public class ItemDTO {
+public class MarkerDTO {
 	private int id;
-	private String name;
-	private int price;
-	private String imgname;
-	private Date rdate;
+	private String title;
+	private String target;
+	private float lat;
+	private float lng;
+	private String loc;
+	private String img;
 }

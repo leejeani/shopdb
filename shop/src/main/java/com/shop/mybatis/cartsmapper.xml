@@ -12,12 +12,6 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		WHERE ca.id = #{id}
 	</select>
 	<select id="selectall" resultType="CartsDTO">
-		SELECT ca.id, ca.cust_id, cu.name as cust_name, it.name as item_name, 
-		it.price as item_price, ca.cnt, ca.rdate, it.imgname as item_imgname,
-		it.id as item_id
-		FROM cart ca
-		INNER JOIN cust cu ON ca.cust_id = cu.id 
-		INNER JOIN item it ON ca.item_id = it.id
 	</select>
 	<insert id="insert" parameterType="CartsDTO">
 		INSERT INTO cart VALUES (NULL, #{cust_id}, #{item_id}, #{cnt}, NOW())

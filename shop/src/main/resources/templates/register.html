@@ -1,0 +1,71 @@
+<script>
+$(document).ready(function(){
+	$('#register_form > button').click(function(){
+		$('#register_form').attr({
+			'action':'/registerimpl',
+			'method':'post'
+		});
+		$('#register_form').submit();
+	});
+	
+	$('#pwd2').keyup(function(){
+		var pwd = $('#pwd').val();
+		var pwd2 = $('#pwd2').val();
+		if(pwd == pwd2){
+			$('#pspan').text('Correct');
+		}else{
+			$('#pspan').text('Incorrect');
+		}
+	});
+	
+	$('#id').keyup(function(){
+		var id = $(this).val();
+		$.ajax({
+			url:'/checkid',
+			data:{'cid':id},
+			success:function(result){
+				if(result == 't'){
+					$('#ispan').text('Available');
+				}else{
+					$('#ispan').text('Not Available');
+				}
+			}
+		});
+		
+	});
+});
+</script>
+
+<div class="container">
+<div class="col-sm-5">
+  <h2>Register</h2>
+  <form id="register_form">
+    <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id">
+      <span id="ispan"></span>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <div class="form-group">
+      <label for="pwd2">Password2:</label>
+      <input type="password" class="form-control" id="pwd2" placeholder="Enter password">
+      <span id="pspan"></span>
+    </div>
+    <div class="form-group">
+      <label for="name">NAME:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+    </div>
+   
+    <button class="btn btn-default">REGISTER</button>
+  </form>
+</div>
+</div>
+
+
+
+
+
+

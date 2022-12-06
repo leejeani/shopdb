@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mapper.MarkerMapper">
+	
+	<select id="select" parameterType="Integer" resultType="MarkerDTO">
+		SELECT * FROM marker WHERE id=#{id}
+	</select>
+	<select id="getloc" parameterType="String" resultType="MarkerDTO">
+		SELECT * FROM marker WHERE loc=#{loc}
+	</select>
+	<select id="selectall" resultType="MarkerDTO">
+		SELECT * FROM marker
+	</select>
+	<insert id="insert" parameterType="MarkerDTO">
+		INSERT INTO marker VALUES (null,#{title},#{target},#{lat},#{lng},#{img},#{loc})
+	</insert>
+	<update id="update" parameterType="MarkerDTO">
+		UPDATE marker SET title=#{title},target=#{target},lat=#{lat},lng=#{lng}, img=#{img},loc=#{loc} WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="Integer">
+		DELETE FROM marker WHERE id=#{id}
+	</delete>
+	
+</mapper>

@@ -1,0 +1,7 @@
+<meta charset="utf-8">
+
+<h3>Cust Detail Page</h3>
+<h4 th:text="${custdetail.id}"></h4>
+<h4 th:text="${custdetail.pwd}"></h4>
+<h4 th:text="${custdetail.name}"></h4>
+<h5><a th:href="@{/custupdate(id=${custdetail.id})}">UPDATE</a></h5>

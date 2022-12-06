@@ -18,7 +18,6 @@ public class CustService implements MyService<String, CustDTO>{
 	@Override
 	public void register(CustDTO v) throws Exception {
 		mapper.insert(v);
-		//mapper.insert(v);
 	}
 
 	@Override

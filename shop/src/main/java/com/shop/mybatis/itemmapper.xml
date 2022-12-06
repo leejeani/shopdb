@@ -7,9 +7,6 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="select" parameterType="Integer" resultType="itemDTO">
 		SELECT * FROM item WHERE id=#{id}
 	</select>
-	<select id="searchitem" parameterType="String" resultType="itemDTO">
-		SELECT * FROM item WHERE name LIKE CONCAT('%',#{txt},'%')
-	</select>
 	<select id="selectall" resultType="itemDTO">
 		SELECT * FROM item
 	</select>

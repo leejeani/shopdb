@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+<script>
+$(document).ready(function(){
+	$('#updatebtn').click(function(){
+		var c = confirm('수정 하시겠습니까 ?');
+		if(c == true){
+			$('#update_form').attr({
+				'method':'post',
+				'action':'custupdateimpl'
+			});
+			$('#update_form').submit();
+		}else{
+			retuen;
+		}
+	});
+});
+
+</script>
+<h3>Cust Update Page</h3>
+<form id="update_form">
+	ID:<input type="text" name="id" th:value="${custupdate.id}" readonly="readonly"><br>
+	PWD:<input type="text" name="pwd" th:value="${custupdate.pwd}"><br>
+	NAME:<input type="text" name="name" th:value="${custupdate.name}"><br>
+</form>
+<h4><a href="#" id="updatebtn">UPDATE</a></h4>
+
+

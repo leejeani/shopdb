@@ -1,0 +1,31 @@
+<script>
+$(document).ready(function(){
+	$('#login_form > button').click(function(){
+		$('#login_form').attr(
+			{
+				'action':'/loginimpl',
+				'method':'post'
+			}		
+		);
+		$('#login_form').submit();
+	});
+});
+</script>
+
+
+<div class="container">
+<div class="col-sm-5">
+  <h2>Login</h2>
+  <form id="login_form">
+    <div class="form-group">
+      <label for="id">ID:</label>
+      <input type="text" class="form-control" id="id" placeholder="Enter ID" name="id">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <button class="btn btn-default">LOGIN</button>
+  </form>
+</div>
+</div>
