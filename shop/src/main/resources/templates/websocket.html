@@ -24,9 +24,9 @@
 <script>
 var stompClient = null;
 var id = '[[${session.logincust.id}]]';
-// 서버소켓에 연결
+// �꽌踰꾩냼耳볦뿉 �뿰寃�
 function connect() {
-	var socket = new SockJS('http://127.0.0.1/admintest/ws');
+	var socket = new SockJS('http://127.0.0.1/admin/ws');
 	stompClient = Stomp.over(socket);
 
 	stompClient.connect({}, function(frame) { 
@@ -54,7 +54,7 @@ function connect() {
 	});
 }
 
-// 서버소켓에 연결끊기
+// �꽌踰꾩냼耳볦뿉 �뿰寃곕걡湲�
 function disconnect() {
 	if (stompClient !== null) {
 		stompClient.disconnect();
@@ -63,7 +63,7 @@ function disconnect() {
 	console.log("Disconnected");
 }
 
-// connect&disconnect버턴 활성화/비활성화
+// connect&disconnect踰꾪꽩 �솢�꽦�솕/鍮꾪솢�꽦�솕
 function setConnected(connected) {
 	if (connected) {
 		$("#status").text("Connected");
@@ -73,7 +73,7 @@ function setConnected(connected) {
 	
 }
 
-// 서버에 메세지 요청 메서드
+// �꽌踰꾩뿉 硫붿꽭吏� �슂泥� 硫붿꽌�뱶
 function sendAll() {
 	var msg = JSON.stringify({
 		'sendid' : id,
