@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.mapper.AJAXMapper">
+	
+	<select id="getCustCnt" resultType="Integer">
+		SELECT count(*) FROM cust
+	</select>
+	
+	<select id="chart1" resultType="ChartDTO">
+		SELECT DATE_FORMAT(rdate,'%m') AS month, gender, SUM(price) AS total_price FROM sales
+		GROUP BY month, gender
+	</select>
+	
+	<select id="chart2" resultType="ChartDTO" parameterType="java.util.HashMap">
+		SELECT gender, SUM(price) AS total_price FROM sales
+		WHERE MONTH(rdate) BETWEEN #{sm} AND #{em}
+		GROUP BY gender
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
