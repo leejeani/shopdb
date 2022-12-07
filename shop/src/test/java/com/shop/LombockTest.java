@@ -7,7 +7,7 @@ import com.shop.dto.CustDTO;
 
 @SpringBootTest
 class LombockTest {
-
+	int a = 10;
 	@Test
 	void contextLoads() {
 		CustDTO c = new CustDTO("id01", "pwd01", "Lee");
